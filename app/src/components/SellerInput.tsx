@@ -187,7 +187,7 @@ export const SellerInput = ({
                       htmlFor="buyer-address"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Buyer Address
+                      Địa chỉ người mua
                     </label>
                     <input
                       ref={buyerAddressInputRef}
@@ -221,7 +221,7 @@ export const SellerInput = ({
               </div>
               <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                 <div className="text-md font-medium text-gray-900">
-                  {`Total: ${new BigNumber(amount).plus(fee)} SOL(fee:${fee})`}
+                  {`Tổng: ${new BigNumber(amount).plus(fee)} SOL(phí:${fee})`}
                 </div>
                 <div className="text-xs font-medium text-gray-700 py-1">
                   {fee * 100}% phí giao dịch được đính kèm. Sẽ thu phí khi người

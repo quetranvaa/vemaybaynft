@@ -2,10 +2,7 @@ import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { PublicKey } from "@solana/web3.js";
 import { useRouter } from "next/dist/client/router";
 import { useEffect, useState } from "react";
-import {
-  TransactionStatus,
-  TxHistory,
-} from "../../types";
+import { TransactionStatus, TxHistory } from "../../types";
 import { Layout } from "../../components/Layout";
 import { SellerInput } from "../../components/SellerInput";
 import { ImageType, MetaImage } from "../../components/MetaImage";
@@ -31,23 +28,28 @@ export default function Detail() {
       const data = await getMetadata(connection, nftPubkey);
       setMetadata(data);
 
-      const GetTxHistoryByNFTAddr = query(ref(database), orderByChild("nftAddress"), equalTo(nft));
+      const GetTxHistoryByNFTAddr = query(
+        ref(database),
+        orderByChild("nftAddress"),
+        equalTo(nft)
+      );
 
-      await get(GetTxHistoryByNFTAddr).then((snapshot) => {
-        if (snapshot.exists()) {
+      await get(GetTxHistoryByNFTAddr)
+        .then((snapshot) => {
+          if (snapshot.exists()) {
             const TxHistoryData: TxHistory[] = snapshot.val();
             var sortedTxHistoryData = [];
             console.log(TxHistoryData);
-            
+
             for (var id in TxHistoryData) {
               sortedTxHistoryData.push(TxHistoryData[id]);
             }
             sortedTxHistoryData.sort((a: TxHistory, b: TxHistory): number => {
-                // Convert string dates into `Date` objects
-                const date1: Date = new Date(a["updatedAt"] || a["createdAt"]);
-                const date2: Date = new Date(b["updatedAt"] || b["createdAt"]);
-                
-                return date2.valueOf() - date1.valueOf(); // DECREASING ORDER
+              // Convert string dates into `Date` objects
+              const date1: Date = new Date(a["updatedAt"] || a["createdAt"]);
+              const date2: Date = new Date(b["updatedAt"] || b["createdAt"]);
+
+              return date2.valueOf() - date1.valueOf(); // DECREASING ORDER
             });
             const items = (sortedTxHistoryData || []) as TxHistory[];
             if (
@@ -58,19 +60,20 @@ export default function Detail() {
                 items.find((item) => item.sellerAddress === sellerAddress)
               );
             }
-        } else {
+          } else {
             console.log("No data available");
-        }
-    }).catch((error) => {
-        console.error(error);
-    });
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     };
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleCopy = async () => {
-    const link = "https://www.sol-hayama.com";
+    const link = "https://www.google.com";
     if ("clipboard" in navigator) {
       await navigator.clipboard.writeText(link);
     } else {
@@ -89,13 +92,13 @@ export default function Detail() {
         <button
           className="text-gray-700"
           onClick={() => router.back()}
-        >{`< Back`}</button>
+        >{`< Trở lại`}</button>
         {transaction && transaction.status === TransactionStatus.REQUESTED && (
           <div className="w-full rounded-md bg-pink-200 p-4 ml-auto mr-auto">
             <div className="grid grid-cols-10">
               <div className="sm:col-span-8 col-span-10">
                 <h3 className="text-lg font-medium text-gray-700">
-                  Offer Requested
+                  Yêu cầu đã thực hiện
                 </h3>
                 <p className="text-md text-gray-700 pt-2">{`Send this site's web link to Seller so that they can accept your offer!`}</p>
               </div>
@@ -104,7 +107,7 @@ export default function Detail() {
                   onClick={handleCopy}
                   className="shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 py-2 px-4"
                 >
-                  Copy Link
+                  Sao chép Link
                 </button>
               </div>
             </div>

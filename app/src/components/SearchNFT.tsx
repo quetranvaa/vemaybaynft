@@ -44,7 +44,7 @@ export const SearchNFT = () => {
     <div className="mt-10 sm:mt-0">
       <div className="p-4 sm:px-0">
         <h3 className="text-lg font-medium leading-6 text-gray-900">
-          Search NFTs
+          Tìm kiếm vé NFT
         </h3>
       </div>
       <div className="sm:grid sm:grid-cols-3 gap-4">
@@ -56,7 +56,7 @@ export const SearchNFT = () => {
                   type="text"
                   name="seller-address"
                   id="seller-address"
-                  placeholder="Input wallet address"
+                  placeholder="Nhập địa chỉ ví vào đây"
                   className="focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm  sm:text-sm border-gray-300 rounded-md"
                   onChange={handleChangeSellerAddress}
                   value={sellerAddress}
@@ -69,7 +69,7 @@ export const SearchNFT = () => {
                   disabled={isDisabled()}
                   onClick={handleSubmit}
                 >
-                  Search
+                  Tìm kiếm
                 </button>
               </div>
             </div>
