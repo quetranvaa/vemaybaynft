@@ -16,14 +16,10 @@ export const Layout = ({
       <div className="flex flex-row items-baseline">
         <Link href="/" passHref>
           <a>
-            <div className="font-mono text-2xl font-light text-pink-500 text-left">
-              👨‍🚀 SolSeller
-            </div>
+            <div className="font-mono text-2xl font-light text-pink-500 text-left"></div>
           </a>
         </Link>
-        <div className="font-mono text-xs text-gray-600 px-3">
-          Selling NFT&apos;s on the Solana blockchain
-        </div>
+        <div className="font-mono text-xs text-gray-600 px-3"></div>
       </div>
       <div className="flex flex-row items-center">
         <div className="font-mono text-base text-gray-600 px-3">
@@ -33,41 +29,6 @@ export const Layout = ({
       </div>
     </div>
     <div className="w-fullscreen flex-grow">{children}</div>
-
-    <footer className="flex items-center boarder-t-2 boarder-gray-100 bg-pink-300 py-2 px-10 sm:justify-between sm:space-x-10 bottom-0">
-      <div className="font-mono text-xs text-gray-600">
-        2021 Sol Seller All rights reserved
-      </div>
-      <div className="flex gap-3 h-5">
-        <a
-          href={`https://github.com/tomoima525/sol-hayama/blob/main/FAQ.md`}
-          target="_blank"
-          rel="noreferrer"
-          className=" self-center font-mono text-xs text-gray-600"
-        >
-          {`FAQ & ToC`}
-        </a>
-        <a
-          href={`https://github.com/arunavo4/sol-sell-escrow`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Image alt="github" src="/github-brands.svg" height={20} width={20} />
-        </a>
-        <a
-          href={`https://twitter.com/sol_hayama`}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Image
-            alt="twitter"
-            src="/twitter-brands.svg"
-            height={20}
-            width={20}
-          />
-        </a>
-      </div>
-    </footer>
     <Toaster />
   </div>
 );

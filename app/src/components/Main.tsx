@@ -1,4 +1,8 @@
-import { useConnection, useWallet, useAnchorWallet } from "@solana/wallet-adapter-react";
+import {
+  useConnection,
+  useWallet,
+  useAnchorWallet,
+} from "@solana/wallet-adapter-react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { TransactionStatus } from "../types";
@@ -11,7 +15,7 @@ import { ModalDialog } from "./dialogs/ModalDialog";
 import { MyNFT } from "./MyNFT";
 import { SearchNFT } from "./SearchNFT";
 import { SellerTab } from "./SellerTab";
-import { ref, update} from "firebase/database";
+import { ref, update } from "firebase/database";
 import { useProgram } from "../web3/useProgram";
 import { cancelOffer } from "../web3/cancelOffer";
 import { acceptOffer } from "../web3/acceptOffer";
@@ -21,7 +25,7 @@ const colors = {
   inactive: "text-gray-500 bg-gray-100",
 };
 
-export const Main = ({database} : {database: any}) => {
+export const Main = ({ database }: { database: any }) => {
   const { connection } = useConnection();
   const { publicKey, signTransaction } = useWallet();
   const loadingDispatch = useLoadingDispatch();
@@ -141,7 +145,7 @@ export const Main = ({database} : {database: any}) => {
       <SearchNFT />
       <div className="mt-6 sm:mt-6">
         <div className="p-4 sm:px-0 sm:py-3">
-          <h3 className="text-lg font-medium  text-gray-900">Transactions</h3>
+          <h3 className="text-lg font-medium  text-gray-900">Giao dịch</h3>
         </div>
         <div className="px-4 sm:px-0">
           <div className="flex justify-start items-center py-2 gap-2">
@@ -153,7 +157,7 @@ export const Main = ({database} : {database: any}) => {
               }`}
               onClick={handleSwitchTab(TransactionType.Seller)}
             >
-              Sell Offers
+              Đề nghị bán
             </button>
             <button
               className={`cursor-pointer py-2 px-4 rounded transition text-center ${
@@ -163,11 +167,11 @@ export const Main = ({database} : {database: any}) => {
               }`}
               onClick={handleSwitchTab(TransactionType.Buyer)}
             >
-              Buy Requests
+              Yêu cầu mua
             </button>
           </div>
-          {tab === TransactionType.Seller && <SellerTab database={database}/>}
-          {tab === TransactionType.Buyer && <BuyerTab database={database}/>}
+          {tab === TransactionType.Seller && <SellerTab database={database} />}
+          {tab === TransactionType.Buyer && <BuyerTab database={database} />}
         </div>
       </div>
       <ModalDialog onConfirm={handleConfirm} />

@@ -32,15 +32,10 @@ export const Seo = ({
       <meta property="og:image:width" content={String(imgWidth)} />
       <meta property="og:image:height" content={String(imgHeight)} />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@sol_hayama" />
+      <meta name="twitter:site" content="@haha" />
       <meta name="twitter:url" content={path} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta
-        name="twitter:image"
-        content="https://hayama-image.s3.us-west-2.amazonaws.com/public/sol-hayama.png"
-      />
-      <meta name="twitter:image:alt" content="image" />
       <link rel="canonical" href={path} />
     </Head>
   );

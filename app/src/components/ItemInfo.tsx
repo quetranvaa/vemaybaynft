@@ -57,21 +57,20 @@ export const ItemInfo = ({
   }) => {
     let host = `${
       process.env.NEXT_PUBLIC_BUILD_ENV === "dev"
-        ? "https://deploy-dev.sol-hayama.com"
-        : "https://www.sol-hayama.com"
+        ? "https://www.solaneyes.com"
+        : "https://www.solaneyes.com"
     }`;
     return host + `/detail/${nftAddress}?sellerAddress=${sellerAddress}`;
   };
   const url = shareUrl({ nftAddress, sellerAddress });
-  const title =
-    "Checkout my #nft on @sol_hayama! Click this link to make an offer #solana #solananft";
+  const title = "Xem thêm nft ở link sau";
   return (
     <div className="mt-10 sm:mt-0">
       <div className="md:grid md:gap-6">
         <div className="mt-5 md:mt-0 md:col-span-2">
           <div className="p-4 sm:px-0">
             <h3 className="text-lg font-medium leading-6 text-gray-900">
-              Share This Item
+              Chia sẻ vật phẩm này
             </h3>
             <p className="mt-1 text-sm text-gray-600">
               {
@@ -87,7 +86,7 @@ export const ItemInfo = ({
                     htmlFor="token-address"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Non-Fungible Token Address
+                    Địa chỉ NFT
                   </label>
                   <a href={explorerAddress} target="_blank" rel="noreferrer">
                     <button

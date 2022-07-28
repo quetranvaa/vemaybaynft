@@ -17,7 +17,7 @@ const StatusLogo = ({ status }: { status: TransactionStatus }) => {
       return (
         <td className="px-3 py-4 whitespace-nowrap">
           <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-            Accepted
+            Đã chấp nhận
           </span>
         </td>
       );
@@ -25,7 +25,7 @@ const StatusLogo = ({ status }: { status: TransactionStatus }) => {
       return (
         <td className="px-3 py-4 whitespace-nowrap">
           <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-pink-100 text-pink-800">
-            Canceled
+            Đã huỷ
           </span>
         </td>
       );
@@ -33,7 +33,7 @@ const StatusLogo = ({ status }: { status: TransactionStatus }) => {
       return (
         <td className="px-3 py-4 whitespace-nowrap">
           <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-            Requested
+            Đã yêu cầu
           </span>
         </td>
       );
@@ -101,8 +101,8 @@ export const Transaction = ({ txHistory, type }: TransactionProps) => {
         dispatch({
           type: "SHOW_DIALOG",
           input: {
-            buttonName: "Discard Offer",
-            message: `This will discard your request for NFT:\n${txHistory.nftAddress}`,
+            buttonName: "Huỷ đề nghị",
+            message: `Điều này sẽ huỷ yêu cầu giao dịch NFT:\n${txHistory.nftAddress}`,
             title: "Discard Offer",
             props: {
               type: ModalUserAction.CancelOffer,
@@ -120,8 +120,8 @@ export const Transaction = ({ txHistory, type }: TransactionProps) => {
           type: "SHOW_DIALOG",
           input: {
             buttonName: "Accept Offer",
-            message: `Do you want to accept an offer for NFT:\n${txHistory.nftAddress}`,
-            title: "Accept Offer",
+            message: `Bạn có muốn chấp nhận đề nghị giao dịch NFT này:\n${txHistory.nftAddress}`,
+            title: "Chấp nhận đề nghị",
             props: {
               type: ModalUserAction.AcceptOffer,
               id: txHistory.id,

@@ -20,18 +20,18 @@ export const MyNFT = () => {
 
   const generateMessage = () => {
     if (!publicKey) {
-      return "Connect your wallet to see your NFTs";
+      return "Kết nối đến ví để xem NFTs của bạn";
     }
     return metadataList
-      ? `Found ${metadataList.length} items`
-      : `You don't have any NFT!`;
+      ? `Tìm thấy ${metadataList.length} vật phẩm`
+      : `Bạn không có NFT nào!`;
   };
 
   return (
     <div className="mt-10 sm:mt-0">
       <div className="p-4 sm:px-0">
         <h3 className="text-lg font-medium leading-6 text-gray-900">
-          My Collections
+          Bộ sưu tập của tôi
         </h3>
       </div>
       <div className="sm:grid sm:grid-cols-3 gap-4">

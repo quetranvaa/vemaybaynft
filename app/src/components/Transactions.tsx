@@ -20,13 +20,13 @@ export const Transactions = ({ items, type }: TransactionsProps) => {
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    Buyer
+                    Người mua
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    Seller
+                    Người bán
                   </th>
                   <th
                     scope="col"
@@ -38,25 +38,25 @@ export const Transactions = ({ items, type }: TransactionsProps) => {
                     scope="col"
                     className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    Offer(SOL)
+                    Đề nghị(SOL)
                   </th>
                   <th
                     scope="col"
                     className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    Status
+                    Trạng thái
                   </th>
                   <th
                     scope="col"
                     className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    Date
+                    Thời gian
                   </th>
                   <th
                     scope="col"
                     className="px-3 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                   >
-                    Action
+                    Hành động
                   </th>
                 </tr>
               </thead>
@@ -68,7 +68,7 @@ export const Transactions = ({ items, type }: TransactionsProps) => {
             </table>
             {hasNoItems && (
               <div className="p-6 text-xl text-center font-medium text-gray-500">
-                There are no transactions.
+                Không có giao dịch nào.
               </div>
             )}
           </div>

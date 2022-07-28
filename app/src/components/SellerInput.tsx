@@ -1,4 +1,8 @@
-import { useConnection, useWallet, useAnchorWallet } from "@solana/wallet-adapter-react";
+import {
+  useConnection,
+  useWallet,
+  useAnchorWallet,
+} from "@solana/wallet-adapter-react";
 import BigNumber from "bignumber.js";
 import { useRef, useState } from "react";
 import { feePercentage } from "../constants";
@@ -14,7 +18,7 @@ import {
   PublicKey,
   TransactionInstruction,
 } from "@solana/web3.js";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 import { database } from "../firebase";
 import { ref, push, update } from "firebase/database";
 import { requestOffer } from "../web3/requestOffer";
@@ -49,7 +53,7 @@ export const SellerInput = ({
     const v = new BigNumber(value);
 
     const fee = v.multipliedBy(feePercentage);
-    setFee(fee.toNumber());    
+    setFee(fee.toNumber());
   };
 
   const handleChangeBuyerAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -127,16 +131,16 @@ export const SellerInput = ({
         ...TxHistory,
         id: newTxHistoryKey,
         createdAt: new Date(Date.now()).toISOString(),
-      }
+      };
 
       // Write the new TxHistory data in the TxHistory list
       const updates: { [key: string]: any } = {};
       updates[newTxHistoryKey] = newTxHistory;
-    
+
       await update(ref(database), updates);
-      
+
       resetInputs();
-      onSubmitted(newTxHistory as TxHistory || undefined);
+      onSubmitted((newTxHistory as TxHistory) || undefined);
     } catch (e) {
       console.error(e);
       setErrorMessage((e as Error).message);
@@ -151,10 +155,10 @@ export const SellerInput = ({
         <div className="mt-5 md:mt-0 md:col-span-2">
           <div className="p-4 sm:px-0">
             <h3 className="text-lg font-medium leading-6 text-gray-900">
-              Offer Request
+              Các yêu cầu giao dịch
             </h3>
             <p className="mt-1 text-sm text-gray-600">
-              Fill in information below to make your offer
+              Điền thông tin vào để tạo một đề nghị giao dịch.
             </p>
           </div>
           <form action="#" method="POST">
@@ -166,7 +170,7 @@ export const SellerInput = ({
                       htmlFor="token-address"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Non-Fungible Token Address
+                      Địa chỉ NFT
                     </label>
                     <input
                       type="text"
@@ -194,7 +198,6 @@ export const SellerInput = ({
                       className="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
                       onChange={handleChangeBuyerAddress}
                     />
-                    
                   </div>
 
                   <div className="col-span-3">
@@ -202,7 +205,7 @@ export const SellerInput = ({
                       htmlFor="offered-amount"
                       className="block text-sm font-medium text-gray-700"
                     >
-                      Offer Amount(Sol)
+                      Giá thành đề nghị (Sol)
                     </label>
                     <input
                       ref={amountInputRef}
@@ -221,8 +224,8 @@ export const SellerInput = ({
                   {`Total: ${new BigNumber(amount).plus(fee)} SOL(fee:${fee})`}
                 </div>
                 <div className="text-xs font-medium text-gray-700 py-1">
-                  {fee*100}% tx fee is included. Charged after Offer accepted by
-                  Buyer.
+                  {fee * 100}% phí giao dịch được đính kèm. Sẽ thu phí khi người
+                  mua chấp nhận giao dịch
                 </div>
                 {errorMessage.length > 0 && (
                   <div className="text-sm font-medium text-red-700 py-2">
@@ -235,7 +238,7 @@ export const SellerInput = ({
                   disabled={isDisabled()}
                   onClick={handleSubmit}
                 >
-                  Make Offer
+                  Tạo đề nghị
                 </button>
               </div>
             </div>
